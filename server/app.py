@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_file
 from flask import render_template
 import os
 app = Flask(__name__)
@@ -10,6 +10,6 @@ def upload():
         file2 = request.files['file2']
         file1.save('./file1')
         file2.save('./file2')
-        return render_template('index.html')
+        return send_file('result.jpg', mimetype='image/jpg')
     else:
         return render_template('index.html')
