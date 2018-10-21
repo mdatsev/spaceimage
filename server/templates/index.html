@@ -2,7 +2,16 @@
     <title>Upload new File</title>
     <h1>Upload new File</h1>
     <form method=post enctype=multipart/form-data>
-      <input type=file name=file1>
-      <input type=file name=file2>
-      <input type=submit value=Upload>
+		<div>
+			Your Image: <input type=file name=file1>
+		</div>
+		<div>
+			Style Image: <input type=file name=file2>
+		</div>
+		<div>
+			fast
+			<input type="range" min="10" max="1000" value="495" name="slider">
+			good looking
+		</div>
+		<input type=submit value=Upload>
     </form>
