@@ -1,13 +1,22 @@
 <!doctype html>
+<html>
+<head>
     <title>Upload new File</title>
-    <h1>Upload new File</h1>
+	<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <h1>Style transfer</h1>
     <form method=post enctype=multipart/form-data>
-		<div>
-			Your Image: <input type=file name=file1>
-		</div>
-		<div>
-			Style Image: <input type=file name=file2>
-		</div>
+		<table style="width:100%">
+			<tr>
+				<td><img id="img1" width="400" height="400" src="../../images/default-placeholder.png"></td>
+				<td><img id="img2" width="400" height="400" src="../../images/default-placeholder.png"></td>
+			</tr>
+			<tr>
+				<td><input id="input1" type=file name=file1></td>
+				<td><input id="input2" type=file name=file2></td>
+			</tr>
+		</table> 
 		<div>
 			fast
 			<input type="range" min="10" max="1000" value="495" name="slider">
@@ -15,3 +24,22 @@
 		</div>
 		<input type=submit value=Upload>
     </form>
+	<script>
+		var file1 = document.getElementById("input1")
+		var file2 = document.getElementById("input2")
+		
+		function showImage(id) {
+			var file = (id == "img1") ? file1 : file2
+			document.getElementById(id).src = window.URL.createObjectURL(file.files[0])
+		}
+		try {
+			showImage("img1")
+			showImage("img2")
+		} catch(error) {
+		
+		}
+		document.getElementById("input1").addEventListener('change', _=>showImage("img1"))
+		document.getElementById("input2").addEventListener('change', _=>showImage("img2"))
+	</script>
+</body>
+</html>
